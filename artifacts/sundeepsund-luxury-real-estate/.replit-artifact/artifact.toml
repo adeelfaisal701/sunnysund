@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Sundeep Sund Luxury Real Estate"
+description = "A premium real-estate experience for discovering exceptional homes, neighborhoods, and advisory services with Sundeep Sund."
+version = "1.0.0"
+id = "artifacts/sundeepsund-luxury-real-estate"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22496
+
+[services.development]
+run = "pnpm --filter @workspace/sundeepsund-luxury-real-estate run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/sundeepsund-luxury-real-estate", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/sundeepsund-luxury-real-estate/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22496"
+BASE_PATH = "/"
