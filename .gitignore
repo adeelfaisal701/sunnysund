@@ -1,5 +1,7 @@
 node_modules/
 dist/
+artifacts/sundeepsund-luxury-real-estate/public/assets/
+artifacts/sundeepsund-luxury-real-estate/public/index.html
 .vite/
 *.tsbuildinfo
 .env
